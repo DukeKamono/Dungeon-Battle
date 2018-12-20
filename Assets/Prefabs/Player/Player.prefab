@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082bf3721ce28e549a33c1ed347ab507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
   isPlayerMoving: 0
   facingDirection: {x: 0, y: 0}
 --- !u!114 &1668411903839090944

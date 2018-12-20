@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 		else
 		{
 			//Check if we are running either in the Unity editor or in a standalone build.
-			/*#if UNITY_STANDALONE || UNITY_WEBPLAYER
+			#if UNITY_STANDALONE || UNITY_WEBPLAYER
 
 			vector2Input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
@@ -45,15 +45,15 @@ public class PlayerMovement : MonoBehaviour
 			{
 				currentRigidbody2D.velocity = Vector2.zero;
 			}
-
 			#endif
-			*/
+
 			//Check if we are running on iOS, Android
-			//#if UNITY_IOS || UNITY_ANDROID
+			#if UNITY_IOS || UNITY_ANDROID
 
 			//Check if Input has registered more than zero touches
 			if (Input.touchCount > 0)
 			{
+				Input.multiTouchEnabled = false;
 				for (int i = 0; i < Input.touchCount; ++i)
 				{
 					Touch myTouch = Input.touches[i];
@@ -67,67 +67,29 @@ public class PlayerMovement : MonoBehaviour
 					{
 						touchOrigin = myTouch.position;
 					}
-				//	else if (myTouch.phase == TouchPhase.Stationary)
-				//	{
-				//		vector2Input = new Vector2(myTouch.position.x, myTouch.position.y).normalized;
-				//		currentRigidbody2D.velocity = new Vector2(vector2Input.x * speed, vector2Input.y * speed);
-				//		facingDirection = vector2Input;
-				//	}
-					else if (myTouch.phase == TouchPhase.Stationary || myTouch.phase == TouchPhase.Moved)
+					if (myTouch.phase == TouchPhase.Stationary || myTouch.phase == TouchPhase.Moved)
 					{
 						Vector2 touchEnd = myTouch.position;
-						float x = touchEnd.x - touchOrigin.x;
-						float y = touchEnd.y - touchOrigin.y;
-						vector2Input = new Vector2(x, y).normalized;
-						currentRigidbody2D.velocity = new Vector2(vector2Input.x * speed, vector2Input.y * speed);
-						facingDirection = vector2Input;
+						float newTouchX = touchEnd.x - touchOrigin.x;
+						float newTouchY = touchEnd.y - touchOrigin.y;
+						vector2Input = new Vector2(newTouchX, newTouchY).normalized;
+
+						if (vector2Input != Vector2.zero) {
+							currentRigidbody2D.velocity = new Vector2 (vector2Input.x * speed, vector2Input.y * speed);
+							facingDirection = vector2Input;
+						}
+						else
+						{
+							currentRigidbody2D.velocity = Vector2.zero;
+						}
 					}
-					else if (myTouch.phase == TouchPhase.Ended)
+					if (myTouch.phase == TouchPhase.Ended)
 					{
 						currentRigidbody2D.velocity = Vector2.zero;
 					}
 				}
-				//Store the first touch detected.
-				//Touch myTouch = Input.touches[0];
-
-				//Check if the phase of that touch equals Began
-				//if (myTouch.phase == TouchPhase.Began)
-				//{
-					//If so, set touchOrigin to the position of that touch
-					//touchOrigin = myTouch.position;
-				//}
-
-				//If the touch phase is not Began, and instead is equal to Ended and the x of touchOrigin is greater or equal to zero:
-				//else if (myTouch.phase == TouchPhase.Moved)
-				//{
-					//Set touchEnd to equal the position of this touch
-					//Vector2 touchEnd = myTouch.position;
-
-					//Calculate the difference between the beginning and end of the touch on the x axis.
-					//float x = touchEnd.x - touchOrigin.x;
-
-					//Calculate the difference between the beginning and end of the touch on the y axis.
-					//float y = touchEnd.y - touchOrigin.y;
-
-					//Set touchOrigin.x to -1 so that our else if statement will evaluate false and not repeat immediately.
-					//touchOrigin.x = -1;
-
-					//vector2Input = new Vector2(myTouch.position.x, myTouch.position.y).normalized;
-
-					//If an input was pressed.
-					//if (vector2Input != Vector2.zero)
-					//{
-					//	currentRigidbody2D.velocity = new Vector2 (vector2Input.x * speed, vector2Input.y * speed);
-						//facingDirection = vector2Input;
-					//}
-				//}
-				//else if (myTouch.phase == TouchPhase.Ended)
-				//{
-				//	currentRigidbody2D.velocity = Vector2.zero;
-				//}
 			}
-
-			//#endif
+			#endif
 		}
 	}
 }
