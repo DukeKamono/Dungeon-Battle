@@ -7,9 +7,13 @@ public class UIManager : MonoBehaviour
 {
 	public Slider healthBar;
 	public Text HPText;
+	public Text classText;
+	public Text strText;
+	public Text agiText;
+	public Text intText;
 
-	private GameObject followTarget;
 	private Stats playerStats;
+	private ClassController playerClass;
 	private static bool UIExists;
 
 	// Use this for initialization
@@ -29,8 +33,8 @@ public class UIManager : MonoBehaviour
 		var player = GameObject.FindGameObjectWithTag("Player");
 		if (player)
 		{
-			followTarget = player;
 			playerStats = player.GetComponent<Stats>();
+			playerClass = player.GetComponent<ClassController>();
 		}
 	}
 
@@ -40,5 +44,9 @@ public class UIManager : MonoBehaviour
 		healthBar.maxValue = playerStats.maxHealth;
 		healthBar.value = playerStats.health;
 		HPText.text = "HP: " + playerStats.health + "/" + playerStats.maxHealth;
+		classText.text = "Class: " + playerClass.chosenClass;
+		strText.text = "Str: " + playerStats.strength;
+		agiText.text = "Agi: " + playerStats.agility;
+		intText.text = "Int: " + playerStats.intelligence;
 	}
 }
