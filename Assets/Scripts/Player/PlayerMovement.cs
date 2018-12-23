@@ -57,16 +57,20 @@ public class PlayerMovement : MonoBehaviour
 				for (int i = 0; i < Input.touchCount; ++i)
 				{
 					Touch myTouch = Input.touches[i];
-
+					
+					//Recalculate the origin touch from the previous touches position and not from the first touch
 					if (i > 0)
 					{
 						touchOrigin = Input.touches[i-1].position;
 					}
-
+					
+					//start the origin touch as the first touch
 					if (myTouch.phase == TouchPhase.Began)
 					{
 						touchOrigin = myTouch.position;
 					}
+					
+					//If we are holding the touch down or moveing (like a swipe) calculate the origin with the new touch to determine the direction to move
 					if (myTouch.phase == TouchPhase.Stationary || myTouch.phase == TouchPhase.Moved)
 					{
 						Vector2 touchEnd = myTouch.position;
