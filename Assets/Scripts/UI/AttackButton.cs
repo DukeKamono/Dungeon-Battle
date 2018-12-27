@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class AttackButton : MonoBehaviour, IPointerDownHandler
+public class AttackButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-	private PlayerAttack playerAttack;
+	private float timeHeldStart;
+	private AttackManager playerAttack;
 
     // Start is called before the first frame update
     void Start()
@@ -13,50 +14,28 @@ public class AttackButton : MonoBehaviour, IPointerDownHandler
 		var player = GameObject.FindGameObjectWithTag("Player");
 		if (player)
 		{
-			playerAttack = player.GetComponent<PlayerAttack>();
+			playerAttack = player.GetComponent<AttackManager>();
 		}
     }
 
-	public void AttackPressed()
+	public void AttackPressed(float timeReleased)
     {
-		playerAttack.Attack();
+		playerAttack.Attack(timeReleased);
     }
 
 	//The the pointer is down clicked
 	public void OnPointerDown(PointerEventData eventData)
 	{
-		//Main mouse button is clicked
-		if (Input.GetMouseButtonDown(0))
-		{
-			AttackPressed();
-		}
+		timeHeldStart = Time.time;
+	}
 
-		//Check if Input has registered more than zero touches
-		else if (Input.touchCount > 0)
-		{
-			//Input.multiTouchEnabled = false;
+	public void OnPointerUp(PointerEventData eventData)
+	{
+		var timeReleased = Time.time - timeHeldStart;
 
-			for (int i = 0; i < Input.touchCount; ++i)
-			{
-				Touch myTouch = Input.touches[i];
+		//Don't count for more than 5 secs of holding for an attack.
+		timeReleased = timeReleased > 5 ? 5 : timeReleased;
 
-				//As soon as you begin a touch attack. Might change if we do a charge attack or something
-				if (myTouch.phase == TouchPhase.Began)
-				{
-					AttackPressed();
-				}
-
-				//If we are holding the touch down or moveing (like a swipe)
-				if (myTouch.phase == TouchPhase.Stationary || myTouch.phase == TouchPhase.Moved)
-				{
-
-				}
-
-				if (myTouch.phase == TouchPhase.Ended)
-				{
-
-				}
-			}
-		}
+		AttackPressed(timeReleased);
 	}
 }

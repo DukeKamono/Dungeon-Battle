@@ -5,9 +5,20 @@ using UnityEngine;
 public class ClassController : MonoBehaviour
 {
 	public string chosenClass;
+	public Class CurrentClass
+	{
+		get
+		{
+			return _currentClass;
+		}
+		set
+		{
+			_currentClass = new Class().GetClass(chosenClass);
+		}
+	}
 
 	private Stats currentStats;
-	private Class currentClass;
+	private Class _currentClass;
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +38,9 @@ public class ClassController : MonoBehaviour
 			};
 		}
 
-		currentClass = new Class().GetClass(chosenClass);
+		_currentClass = new Class().GetClass(chosenClass);
 
-		currentStats.UpdateStatsByClass(currentClass);
+		currentStats.UpdateStatsByClass(CurrentClass);
 	}
 
     // Update is called once per frame

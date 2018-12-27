@@ -6,13 +6,11 @@ using UnityEngine.EventSystems;
 public class PlayerMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerUpHandler
 {
 	public float speed;
-	public bool isPlayerMoving;
 	public Vector2 facingDirection;
 
 	private Rigidbody2D currentRigidbody2D;
 	private Vector2 vector2Input;
 	private Vector2 touchOrigin = -Vector2.one; //Used to store location of screen touch origin for mobile controls.
-	private RectTransform currentRecTransform;
 
 	// Use this for initialization
 	void Start ()
@@ -22,10 +20,6 @@ public class PlayerMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHand
 		{
 			currentRigidbody2D = player.GetComponent<Rigidbody2D>();
 		}
-
-		isPlayerMoving = true;
-
-		currentRecTransform = GetComponent<RectTransform>();
 	}
 
 	public void OnPointerDown(PointerEventData eventData)
