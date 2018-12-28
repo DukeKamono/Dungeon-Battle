@@ -16,4 +16,14 @@ public class Class
 		ClassAgility = classAgility;
 		ClassIntelligence = classIntelligence;
 	}
+
+	public virtual float Attack(float timeReleased, float currentStrength)
+	{
+
+		//Animations here
+
+		var total = timeReleased + currentStrength;
+
+		return total;
+	}
 }

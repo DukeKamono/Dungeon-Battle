@@ -11,4 +11,14 @@ public class Warrior : Class
 		ClassAgility = classAgility;
 		ClassIntelligence = classIntelligence;
     }
+
+	public override float Attack(float timeReleased, float currentStrength)
+	{
+
+		//Animations here
+
+		var total = timeReleased + currentStrength;
+
+		return total;
+	}
 }
