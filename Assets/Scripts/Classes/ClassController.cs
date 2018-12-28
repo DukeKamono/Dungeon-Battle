@@ -1,13 +1,14 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ClassController
 {
-	public BasicClass CurrentClass;
+	public Class CurrentClass;
 
 	private Stats CurrentStats;
 
+	//Prob make a enum later
 	private readonly string[] classList =
 	{
 		"Warrior",
@@ -21,7 +22,7 @@ public class ClassController
 		
 	}
 
-	public BasicClass GetClass(string chosenClass)
+	public Class GetClass(string chosenClass)
 	{
 		if (chosenClass == classList[0])
 		{
@@ -37,7 +38,7 @@ public class ClassController
 		}
 		else
 		{
-			return new BasicClass();//Basic no specific class
+			return new Class();//Basic no specific class
 		}
 	}
 }

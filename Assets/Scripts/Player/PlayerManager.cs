@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
 	public string ChosenClass;
 
 	private Stats CurrentStats;
-	private BasicClass CurrentClass;
+	private Class CurrentClass;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
 		return CurrentStats;
 	}
 
-	public BasicClass GetClass()
+	public Class GetClass()
 	{
 		return CurrentClass;
 	}

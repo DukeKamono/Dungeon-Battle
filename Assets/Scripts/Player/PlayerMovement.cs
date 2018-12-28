@@ -5,9 +5,9 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerUpHandler
 {
-	public float Speed;
 	public Vector2 FacingDirection;
 
+	private float Speed;
 	private Rigidbody2D CurrentRigidbody2D;
 	private Vector2 Vector2Input;
 	private Vector2 TouchOrigin = -Vector2.one; //Used to store location of screen touch origin for mobile controls.
@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHand
 		if (player)
 		{
 			CurrentRigidbody2D = player.GetComponent<Rigidbody2D>();
+			Speed = player.GetComponent<PlayerManager>().GetStats().GetSpeed();
 		}
 	}
 

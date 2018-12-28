@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Warrior : BasicClass
+public class Warrior : Class
 {
 	public Warrior(float classHealth = 10, float classStrength = 5, float classAgility = 3, float classIntelligence = 1)
     {
