@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class AttackButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+	private const float TIMEHELDCAP = 5;
 	private float TimeHeldStart;
 	private AttackManager PlayerAttack;
 
@@ -34,7 +35,7 @@ public class AttackButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		var timeReleased = Time.time - TimeHeldStart;
 
 		//Don't count for more than 5 secs of holding for an attack.
-		timeReleased = timeReleased > 5 ? 5 : timeReleased;
+		timeReleased = timeReleased > TIMEHELDCAP ? TIMEHELDCAP : timeReleased;
 
 		AttackPressed(timeReleased);
 	}

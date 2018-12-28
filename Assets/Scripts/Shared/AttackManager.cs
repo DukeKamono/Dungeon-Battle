@@ -15,19 +15,26 @@ public class AttackManager : MonoBehaviour
 	
 	public void Attack(float timeReleased)
 	{
-		var totalDamage = CalculateDamage();
+		//I did ceiling instead of round, because I can.
+		var totalDamage = Mathf.Ceil(CalculateDamage(timeReleased));
 		Debug.Log("Player Attacked! " + totalDamage);
 		Debug.Log("Time Released: " + timeReleased);
 	}
 
-	private string test()
+	private float ClassAttack(float timeReleased, float currentStrength)
 	{
-		return CurrentPlayer.ChosenClass;
+		return CurrentPlayer.GetClass().Attack(timeReleased, currentStrength);
 	}
 
-	private float CalculateDamage()
+	private float CalculateDamage(float timeReleased)
 	{
 		//Modifiers and stuff. Maybe this isn't just Strength based.
-		return  CurrentPlayer.GetStats().GetStrength();
+		var currentStrength = CurrentPlayer.GetStats().GetStrength();
+
+		var classModifier = ClassAttack(timeReleased, currentStrength);
+
+		Debug.Log(CurrentPlayer.GetClass());
+
+		return classModifier;
 	}
 }
