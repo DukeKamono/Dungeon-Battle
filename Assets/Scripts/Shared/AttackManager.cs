@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class AttackManager : MonoBehaviour
 {
-	private float damage;
-	private Stats currentStats;
-	private ClassController currentClass;
+	private float Damage;
+	private PlayerManager CurrentPlayer;
 	
 	// Start is called before the first frame update
 	void Start()
 	{
-		currentStats = GetComponent<Stats>();
-		currentClass = GetComponent<ClassController>();
+		CurrentPlayer = GetComponent<PlayerManager>();
 	}
 	
 	public void Attack(float timeReleased)
@@ -22,14 +20,14 @@ public class AttackManager : MonoBehaviour
 		Debug.Log("Time Released: " + timeReleased);
 	}
 
-	private Class test()
+	private string test()
 	{
-		return currentClass.CurrentClass;
+		return CurrentPlayer.ChosenClass;
 	}
 
 	private float CalculateDamage()
 	{
 		//Modifiers and stuff. Maybe this isn't just Strength based.
-		return currentStats.strength;
+		return  CurrentPlayer.GetStats().GetStrength();
 	}
 }

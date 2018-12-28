@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872692, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1469,9 +1469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082bf3721ce28e549a33c1ed347ab507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  isPlayerMoving: 0
-  facingDirection: {x: 0, y: 0}
+  Speed: 0
+  FacingDirection: {x: 0, y: 0}
 --- !u!1 &1405115929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,12 +1815,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46a6c3d45cfb7b4286b9b9b8c353a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 166062209}
+  HealthBar: {fileID: 166062209}
   HPText: {fileID: 1919793829}
-  classText: {fileID: 2016556046}
-  strText: {fileID: 1860563181}
-  agiText: {fileID: 1918176302}
-  intText: {fileID: 13282879}
+  ClassText: {fileID: 2016556046}
+  StrText: {fileID: 1860563181}
+  AgiText: {fileID: 1918176302}
+  IntText: {fileID: 13282879}
 --- !u!114 &1725821121
 MonoBehaviour:
   m_ObjectHideFlags: 0

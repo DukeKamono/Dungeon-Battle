@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CameraBounds : MonoBehaviour
 {
-	private BoxCollider2D cameraBounds;
-	private CameraManager cameraManager;
+	private BoxCollider2D CameraBound;
+	private CameraManager CameraManager;
 
 	// Use this for initialization
 	void Start()
 	{
-		cameraBounds = GetComponent<BoxCollider2D>();
-		cameraManager = FindObjectOfType<CameraManager>();
-		cameraManager.SetBounds(cameraBounds);
+		CameraBound = GetComponent<BoxCollider2D>();
+		CameraManager = FindObjectOfType<CameraManager>();
+		CameraManager.SetBounds(CameraBound);
 	}
 }

@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 
 public class AttackButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-	private float timeHeldStart;
-	private AttackManager playerAttack;
+	private float TimeHeldStart;
+	private AttackManager PlayerAttack;
 
     // Start is called before the first frame update
     void Start()
@@ -14,24 +14,24 @@ public class AttackButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		var player = GameObject.FindGameObjectWithTag("Player");
 		if (player)
 		{
-			playerAttack = player.GetComponent<AttackManager>();
+			PlayerAttack = player.GetComponent<AttackManager>();
 		}
     }
 
 	public void AttackPressed(float timeReleased)
     {
-		playerAttack.Attack(timeReleased);
+		PlayerAttack.Attack(timeReleased);
     }
 
 	//The the pointer is down clicked
 	public void OnPointerDown(PointerEventData eventData)
 	{
-		timeHeldStart = Time.time;
+		TimeHeldStart = Time.time;
 	}
 
 	public void OnPointerUp(PointerEventData eventData)
 	{
-		var timeReleased = Time.time - timeHeldStart;
+		var timeReleased = Time.time - TimeHeldStart;
 
 		//Don't count for more than 5 secs of holding for an attack.
 		timeReleased = timeReleased > 5 ? 5 : timeReleased;
