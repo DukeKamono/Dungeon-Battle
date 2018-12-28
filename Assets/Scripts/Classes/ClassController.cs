@@ -1,42 +1,44 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClassController : MonoBehaviour
+public class ClassController
 {
-	public string chosenClass;
+	public Class CurrentClass;
 
-	private Stats currentStats;
-	private Class currentClass;
+	private Stats CurrentStats;
+
+	//Prob make a enum later
+	private readonly string[] classList =
+	{
+		"Warrior",
+		"Rogue",
+		"Mage"
+	};
 
     // Start is called before the first frame update
     void Start()
     {
-		//Find the stats component on the current object
-		currentStats = GetComponent<Stats>();
-
-		//if there is none make a basic stats
-		if (!currentStats)
-		{
-			currentStats = new Stats()
-			{
-				health = 20,
-				strength = 1,
-				agility = 1,
-				intelligence = 1
-			};
-		}
-
-		currentClass = new Class().GetClass(chosenClass);
-
-		currentStats.UpdateStatsByClass(currentClass);
+		
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
+	public Class GetClass(string chosenClass)
+	{
+		if (chosenClass == classList[0])
+		{
+			return new Warrior();
+		}
+		else if (chosenClass == classList[1])
+		{
+			return new Rogue();
+		}
+		else if (chosenClass == classList[2])
+		{
+			return new Mage();
+		}
+		else
+		{
+			return new Class();//Basic no specific class
+		}
+	}
 }

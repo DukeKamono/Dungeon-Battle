@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour {
 	//Assign a player object in inspector
-	public GameObject player;
+	public GameObject Player;
 
 	//Load a scene by name
 	public void LoadScene(string sceneName)
@@ -18,8 +18,8 @@ public class SceneController : MonoBehaviour {
 	public void LoadStartScene(string className)
 	{
 		//Should update posistion to starting posistion.
-		GameObject chosenPlayer = Instantiate(player, Vector3.zero, Quaternion.Euler(Vector3.zero));
-		chosenPlayer.GetComponent<ClassController>().chosenClass = className;
+		GameObject chosenPlayer = Instantiate(Player, Vector3.zero, Quaternion.Euler(Vector3.zero));
+		chosenPlayer.GetComponent<PlayerManager>().ChosenClass = className;
 		DontDestroyOnLoad(chosenPlayer);
 
 		SceneManager.LoadScene("BeginningScene");

@@ -5,15 +5,14 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-	public Slider healthBar;
+	public Slider HealthBar;
 	public Text HPText;
-	public Text classText;
-	public Text strText;
-	public Text agiText;
-	public Text intText;
+	public Text ClassText;
+	public Text StrText;
+	public Text AgiText;
+	public Text IntText;
 
-	private Stats playerStats;
-	private ClassController playerClass;
+	private PlayerManager CurrentPlayer;
 	private static bool UIExists;
 
 	// Use this for initialization
@@ -33,20 +32,22 @@ public class UIManager : MonoBehaviour
 		var player = GameObject.FindGameObjectWithTag("Player");
 		if (player)
 		{
-			playerStats = player.GetComponent<Stats>();
-			playerClass = player.GetComponent<ClassController>();
+			CurrentPlayer = player.GetComponent<PlayerManager>();
 		}
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		healthBar.maxValue = playerStats.maxHealth;
-		healthBar.value = playerStats.health;
-		HPText.text = "HP: " + playerStats.health + "/" + playerStats.maxHealth;
-		classText.text = "Class: " + playerClass.chosenClass;
-		strText.text = "Str: " + playerStats.strength;
-		agiText.text = "Agi: " + playerStats.agility;
-		intText.text = "Int: " + playerStats.intelligence;
+		Stats playerStats = CurrentPlayer.GetStats();
+		Class playerClass = CurrentPlayer.GetClass ();
+
+		HealthBar.maxValue = playerStats.GetMaxHealth();
+		HealthBar.value = playerStats.GetHealth();
+		HPText.text = "HP: " + playerStats.GetHealth() + "/" + playerStats.GetMaxHealth();
+		ClassText.text = "Class: " + playerClass.ToString();
+		StrText.text = "Str: " + playerStats.GetStrength();
+		AgiText.text = "Agi: " + playerStats.GetAgility();
+		IntText.text = "Int: " + playerStats.GetIntelligence();
 	}
 }

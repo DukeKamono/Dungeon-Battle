@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Rogue : Class
 {
-	public Rogue()
+	public Rogue(float classHealth = 7, float classStrength = 3, float classAgility = 5, float classIntelligence = 1)
 	{
-		classHealth = 7;
-		classStrength = 3;
-		classAgility = 5;
-		classIntelligence = 1;
+		ClassHealth = classHealth;
+		ClassStrength = classStrength;
+		ClassAgility = classAgility;
+		ClassIntelligence = classIntelligence;
 	}
 }

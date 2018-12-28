@@ -9,10 +9,10 @@ using UnityEngine;
 // Then to run the events add this to where you want the events subscribed to run at: EventManager.Test();
 public class EventManager : MonoBehaviour {
 	public delegate void TestDelegate();
-	public static event TestDelegate testDelegate;
+	public static event TestDelegate Test_Delegate;
 
 	public static void Test()
 	{
-		testDelegate();
+		Test_Delegate();
 	}
 }

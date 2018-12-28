@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Mage : Class
 {
-	public Mage()
+	public Mage(float classHealth = 5, float classStrength = 1, float classAgility = 3, float classIntelligence = 5)
 	{
-		classHealth = 5;
-		classStrength = 1;
-		classAgility = 3;
-		classIntelligence = 5;
+		ClassHealth = classHealth;
+		ClassStrength = classStrength;
+		ClassAgility = classAgility;
+		ClassIntelligence = classIntelligence;
 	}
 }

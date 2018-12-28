@@ -635,6 +635,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c41c9e976aee67545816a8d9876d61eb, type: 3}
+--- !u!61 &491737876 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 61619893500885560, guid: c41c9e976aee67545816a8d9876d61eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 491737875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &844349490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,9 +1475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082bf3721ce28e549a33c1ed347ab507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  isPlayerMoving: 0
-  facingDirection: {x: 0, y: 0}
+  Speed: 0
+  FacingDirection: {x: 0, y: 0}
 --- !u!1 &1405115929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,6 +1755,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1780123056825586, guid: f5fb42fb1ac4b1c4db538ce73cc65074, type: 3}
+      propertyPath: m_Name
+      value: Game Camera
+      objectReference: {fileID: 0}
     - target: {fileID: 4450427783446906, guid: f5fb42fb1ac4b1c4db538ce73cc65074, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1782,6 +1791,23 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4450427783446906, guid: f5fb42fb1ac4b1c4db538ce73cc65074, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450427783446906, guid: f5fb42fb1ac4b1c4db538ce73cc65074, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450427783446906, guid: f5fb42fb1ac4b1c4db538ce73cc65074, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114837897313510850, guid: f5fb42fb1ac4b1c4db538ce73cc65074,
+        type: 3}
+      propertyPath: BoundBox
+      value: 
+      objectReference: {fileID: 491737876}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5fb42fb1ac4b1c4db538ce73cc65074, type: 3}
 --- !u!1 &1725821119
@@ -1816,12 +1842,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46a6c3d45cfb7b4286b9b9b8c353a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 166062209}
+  HealthBar: {fileID: 166062209}
   HPText: {fileID: 1919793829}
-  classText: {fileID: 2016556046}
-  strText: {fileID: 1860563181}
-  agiText: {fileID: 1918176302}
-  intText: {fileID: 13282879}
+  ClassText: {fileID: 2016556046}
+  StrText: {fileID: 1860563181}
+  AgiText: {fileID: 1918176302}
+  IntText: {fileID: 13282879}
 --- !u!114 &1725821121
 MonoBehaviour:
   m_ObjectHideFlags: 0
