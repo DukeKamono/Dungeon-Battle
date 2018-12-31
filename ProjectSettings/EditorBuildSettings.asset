@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/BeginningScene.unity
     guid: b67de892b7b25694092458f786bc495b
+  - enabled: 1
+    path: Assets/Scenes/Menu/Lobby.unity
+    guid: 78754d70fadfa30438df012abb28990b
   m_configObjects: {}
