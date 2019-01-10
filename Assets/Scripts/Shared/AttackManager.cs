@@ -19,6 +19,7 @@ public class AttackManager : MonoBehaviour
 		var totalDamage = Mathf.Ceil(CalculateDamage(timeReleased));
 		Debug.Log("Player Attacked! " + totalDamage);
 		Debug.Log("Time Released: " + timeReleased);
+		CurrentPlayer.gameObject.GetComponentInChildren<Animator>().SetTrigger("Attack");
 	}
 
 	private float ClassAttack(float timeReleased, float currentStrength)
