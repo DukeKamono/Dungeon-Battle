@@ -8,16 +8,27 @@ public class PlayerManager : MonoBehaviour
 
 	private Stats CurrentStats;
 	private Class CurrentClass;
+	private EquipmentController CurrentEquipment;
 
     // Start is called before the first frame update
     void Start()
     {
-		CurrentStats = new Stats();
+		bool newPlayer = true; //this will be changed. Later.
+		
+		if (newPlayer)
+		{
+			CurrentStats = new Stats();
 
-		ClassController classController = new ClassController();
-		CurrentClass = classController.GetClass(ChosenClass);
-		CurrentStats.UpdateStatsByClass(CurrentClass);
-    }
+			ClassController classController = new ClassController();
+			CurrentClass = classController.GetClass(ChosenClass);
+			CurrentStats.UpdateStatsByClass(CurrentClass);
+
+			CurrentEquipment = new EquipmentController();
+		}
+
+		//Load stuff and add it to the exisiting player?
+		
+	}
 
     // Update is called once per frame
     void Update()

@@ -21,18 +21,6 @@ public class Stats
 		Speed = CalculateSpeed(speed);
 	}
 
-    // Start is called before the first frame update
-    void Start()
-    {
-		
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 	//Update stats with class.
 	public void UpdateStatsByClass(Class classType)
 	{

@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class ClassController
 {
-	public Class CurrentClass;
-
-	private Stats CurrentStats;
-
 	//Prob make a enum later
 	private readonly string[] classList =
 	{
@@ -15,12 +11,6 @@ public class ClassController
 		"Rogue",
 		"Mage"
 	};
-
-    // Start is called before the first frame update
-    void Start()
-    {
-		
-	}
 
 	public Class GetClass(string chosenClass)
 	{
