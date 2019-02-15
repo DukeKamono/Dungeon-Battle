@@ -20,10 +20,21 @@ public class EquipmentController
 		
 	}
 
-	// Update is called once per frame
-	void Update()
+	public void UpdateEquipment(List<Weapon> newWeapons, Helmet newHelmet, Armor newArmor)
 	{
+		foreach (var newWeapon in newWeapons) {
+			if (newWeapon != null) {
+				//Update weapon
+			}
+		}
 
+		if (newHelmet != null) {
+			//Update helmet
+		}
+
+		if (newArmor != null) {
+			//update armor
+		}
 	}
 
 	private void Save()
@@ -31,8 +42,8 @@ public class EquipmentController
 
 	}
 
-	private void Load()
+	public EquipmentController Load()
 	{
-
+		return new EquipmentController();
 	}
 }

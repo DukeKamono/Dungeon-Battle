@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+	private bool IsMainHand;
 	private Stats WeaponStats;
 
-    // Start is called before the first frame update
-    void Start()
+    public Weapon()
     {
 		WeaponStats = new Stats();
+		IsMainHand = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Animation?
     }
 }
