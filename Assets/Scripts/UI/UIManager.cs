@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
 	void Update()
 	{
 		Stats playerStats = CurrentPlayer.GetStats();
-		Class playerClass = CurrentPlayer.GetClass ();
+		Class playerClass = CurrentPlayer.GetClass();
 
 		HealthBar.maxValue = playerStats.GetMaxHealth();
 		HealthBar.value = playerStats.GetHealth();
