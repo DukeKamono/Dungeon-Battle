@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 50477543688326046}
   - component: {fileID: 2917428303124842815}
   - component: {fileID: 196621157026198076}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 369537584367521841}
   - component: {fileID: 2313851254581856831}
   - component: {fileID: 8012256529971475795}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Player Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 4136961731820461078}
   - component: {fileID: 6195296157727172}
   - component: {fileID: 4062193100203106219}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Player Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,6 +369,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4358988764491540}
     m_Modifications:
+    - target: {fileID: 7932124910409333137, guid: 107216cfb1b0bfb438f38afafff94657,
+        type: 3}
+      propertyPath: m_Name
+      value: Sword_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7932124910409333137, guid: 107216cfb1b0bfb438f38afafff94657,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4827441791980775807, guid: 107216cfb1b0bfb438f38afafff94657,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -428,11 +438,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 0.10695185
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932124910409333137, guid: 107216cfb1b0bfb438f38afafff94657,
-        type: 3}
-      propertyPath: m_Name
-      value: Sword_0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 107216cfb1b0bfb438f38afafff94657, type: 3}
